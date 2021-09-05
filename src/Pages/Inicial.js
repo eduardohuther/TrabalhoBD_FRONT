@@ -43,9 +43,9 @@ function Inicial() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar valor={0}/>
       <h1 style={{ textAlign: "center", marginTop: 25, marginBottom: 25 }}>
-        Página Inicial
+        PÁGINA INICIAL
       </h1>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Paper component="form" className={classes.root}>

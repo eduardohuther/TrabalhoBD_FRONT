@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -14,9 +15,10 @@ const useStyles = makeStyles({
   },
 });
 
-function Navbar() {
+function Navbar({ valor }) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const history = useHistory();
+  const [value, setValue] = React.useState(valor);
 
   return (
     <div>
@@ -28,11 +30,15 @@ function Navbar() {
         showLabels
         className={classes.root}
       >
-        <BottomNavigationAction label="INICIAL" icon={<HomeIcon />} />
-        <BottomNavigationAction label="CADASTRAR" icon={<AddIcon />} />
-        <BottomNavigationAction label="CONSULTAR" icon={<SearchIcon />} />
+        <BottomNavigationAction label="INICIAL" icon={<HomeIcon />} onClick={() => history.push("/")}/>
+        <BottomNavigationAction label="CADASTRAR" icon={<AddIcon />} onClick={() => history.push("/cadastrar")}/>
+        <BottomNavigationAction label="CONSULTAR" icon={<SearchIcon />} onClick={() => history.push("/consultar")}/>
         <BottomNavigationAction label="RELATÓRIOS" icon={<EqualizerIcon />} />
-        <BottomNavigationAction label="SAIR" icon={<CloseIcon />} />
+        <BottomNavigationAction label="SAIR" icon={<CloseIcon />} onClick={() => {
+          localStorage.removeItem('usertoken')
+          localStorage.removeItem('cpf')
+          history.push('/login')
+        }}/>
       </BottomNavigation>
     </div>
   );
