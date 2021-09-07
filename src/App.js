@@ -1,9 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect, Switch, useRouteMatch } from 'react-router-dom'
 import Login from './Pages/Login'
-import Inicial from './Pages/Inicial';
 import Cadastrar from './Pages/Cadastrar';
 import Consultar from './Pages/Consultar';
+import Relatorios from './Pages/Relatorios';
 
 const isAutheticated = () => {
   return localStorage.getItem('usertoken') && localStorage.getItem('cpf') ? true : false
@@ -24,9 +24,9 @@ function App() {
         <div className="container-fluid">
           <Switch>
           <Route exact path="/login" component={Login} />
-          <PrivateRoute exact path="/" component={Inicial} />
-          <PrivateRoute exact path="/cadastrar" component={Cadastrar} />
+          <PrivateRoute exact path="/" component={Cadastrar} />
           <PrivateRoute exact path="/consultar" component={Consultar} />
+          <PrivateRoute exact path="/relatorios" component={Relatorios} />
           </Switch>
         </div>
       </div>

@@ -460,7 +460,7 @@ function Cadastrar() {
 
   return (
     <div>
-      <Navbar valor={1} />
+      <Navbar valor={0} />
       <h1 style={{ textAlign: "center", marginTop: 25, marginBottom: 25 }}>
         CADASTROS
       </h1>

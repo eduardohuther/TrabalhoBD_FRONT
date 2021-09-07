@@ -112,6 +112,11 @@ function Login() {
             <h2>Fazer Login no Sistema</h2>
           </div>
         </div>
+        <div>
+          <img src="/logo.png">
+          
+          </img>
+        </div>
         <form
           onSubmit={makeLogin}
           style={{
